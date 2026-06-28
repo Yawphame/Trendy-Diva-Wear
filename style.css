@@ -1,0 +1,462 @@
+/* =========================
+        CSS RESET
+========================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* =========================
+       CSS VARIABLES
+========================= */
+
+:root {
+
+    /* Brand Colors */
+    --primary-color: #111111;
+    --secondary-color: #ffffff;
+    --accent-color: #d4af37;
+    --accent-hover: #b8941f;
+
+    /* Neutral Colors */
+    --background-color: #ffffff;
+    --surface-color: #f8f8f8;
+    --border-color: #e5e5e5;
+
+    /* Text Colors */
+    --text-primary: #111111;
+    --text-secondary: #666666;
+    --text-light: #999999;
+
+    /* Status Colors */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffb703;
+
+    /* Typography */
+    --font-primary: "Poppins", sans-serif;
+    --font-secondary: "Playfair Display", serif;
+
+    /* Font Sizes */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-md: 1rem;
+    --fs-lg: 1.125rem;
+    --fs-xl: 1.5rem;
+    --fs-2xl: 2rem;
+    --fs-3xl: 3rem;
+    --fs-4xl: 4rem;
+
+    /* Font Weights */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /* Line Heights */
+    --line-height: 1.6;
+    --heading-line-height: 1.2;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-pill: 999px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.10);
+    --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Layout */
+    --container-width: 1200px;
+    --header-height: 80px;
+
+}
+/* =========================
+       GLOBAL STYLES
+========================= */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--fs-md);
+    font-weight: var(--fw-regular);
+    line-height: var(--line-height);
+
+    color: var(--text-primary);
+    background-color: var(--background-color);
+
+    overflow-x: hidden;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-secondary);
+    font-weight: var(--fw-bold);
+    line-height: var(--heading-line-height);
+    color: var(--text-primary);
+}
+
+/* Paragraphs */
+
+p {
+    color: var(--text-secondary);
+    line-height: var(--line-height);
+}
+
+/* Links */
+
+a {
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Images */
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Buttons */
+
+button {
+    transition: all var(--transition);
+}
+
+/* Form Elements */
+
+input,
+textarea,
+select {
+    width: 100%;
+    color: var(--text-primary);
+}
+
+/* Selection */
+
+::selection {
+    background: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
+/* =========================
+         CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+
+    margin: 0 auto;
+
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+}
+
+/* Large Screens */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .container {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .container {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+/* =========================
+         TYPOGRAPHY
+========================= */
+
+/* Main Heading */
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: var(--fw-bold);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+/* Section Headings */
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--fw-bold);
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+/* Sub Headings */
+h3 {
+    font-size: 1.5rem;
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+/* Paragraphs */
+p {
+    font-size: var(--fs-md);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+}
+
+/* Small Text */
+small {
+    font-size: var(--fs-sm);
+    color: var(--text-light);
+}
+
+/* Hero Tag */
+.hero-tag {
+    display: inline-block;
+
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    color: var(--accent-color);
+
+    margin-bottom: var(--space-md);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.section-title h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.section-title p {
+    font-size: var(--fs-lg);
+    color: var(--text-secondary);
+}
+
+/* Text Utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+/* =========================
+          BUTTONS
+========================= */
+
+/* Shared Button Styles */
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+
+    padding: 0.9rem 2rem;
+
+    font-size: var(--fs-md);
+    font-weight: var(--fw-semibold);
+
+    border-radius: var(--radius-pill);
+
+    transition: all var(--transition);
+
+    cursor: pointer;
+}
+
+/* Primary Button */
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+
+    border: 2px solid var(--primary-color);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+
+    color: var(--secondary-color);
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-lg);
+}
+
+/* Secondary Button */
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-md);
+}
+
+/* Active State */
+
+.btn-primary:active,
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
+/* Focus State */
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+    outline: 3px solid rgba(212, 175, 55, 0.35);
+    outline-offset: 4px;
+}
+
+/* Disabled Buttons */
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
