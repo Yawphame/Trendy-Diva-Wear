@@ -2857,3 +2857,100 @@ header {
 body.navbar-scrolled {
     padding-top: 90px;
 }
+/* =========================
+      SCROLL REVEAL
+========================= */
+
+.section-title,
+.category-card,
+.product-card,
+.feature-card,
+.testimonial-card,
+.brand-card,
+.instagram-card,
+.hero-content,
+.promo-content,
+.newsletter-content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-title.show,
+.category-card.show,
+.product-card.show,
+.feature-card.show,
+.testimonial-card.show,
+.brand-card.show,
+.instagram-card.show,
+.hero-content.show,
+.promo-content.show,
+.newsletter-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =========================
+      NEWSLETTER BUTTON
+========================= */
+
+.newsletter-form button,
+.footer-newsletter button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-form button:hover,
+.footer-newsletter button:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================
+      BUTTON RIPPLE
+========================= */
+
+.btn-primary,
+.btn-secondary,
+.product-btn,
+.newsletter-form button,
+.footer-newsletter button {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background: rgba(255,255,255,.35);
+    animation: ripple .6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* =========================
+        PAGE LOADED
+========================= */
+
+body {
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
