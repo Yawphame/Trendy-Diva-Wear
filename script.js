@@ -354,12 +354,7 @@ const revealObserver = new IntersectionObserver(
 
             if (!entry.isIntersecting) return;
 
-            entry.target.style.opacity = "1";
-
-            entry.target.style.transform = "translateY(0)";
-
-            entry.target.style.transition =
-                "opacity 0.8s ease, transform 0.8s ease";
+            entry.target.classList.add("show");
 
             observer.unobserve(entry.target);
 
